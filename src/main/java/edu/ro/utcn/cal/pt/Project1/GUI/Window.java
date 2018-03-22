@@ -43,8 +43,8 @@ public class Window {
         division        = new Division();
 
         window.setVisible(true);
-        window.setLocationRelativeTo(null);
         window.setSize(640, 480);
+        window.setLocationRelativeTo(null);
         window.setContentPane(panel1);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -94,7 +94,8 @@ public class Window {
             public void actionPerformed(ActionEvent e) {
                 p1 = getPolinom(polinom1.getText());
                 p2 = getPolinom(polinom2.getText());
-                res.setText(division.operation(p1, p2)[0].toString());
+                Polinom[] result = division.operation(p1, p2);
+                res.setText(result[0].toString() + " rest: " + result[1].toString());
             }
         });
 

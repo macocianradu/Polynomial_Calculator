@@ -4,9 +4,19 @@ import java.util.ArrayList;
 
 public class Polinom {
     public ArrayList<Monom> terms;
+    private int degree;
 
     public Polinom(){
         terms = new ArrayList<Monom>();
+    }
+
+    public int getDegree(){
+        for(Monom m: this.terms){
+            if(m.grade > this.degree){
+                this.degree = m.grade;
+            }
+        }
+        return this.degree;
     }
 
     public void addMonom(Monom m){
@@ -27,6 +37,14 @@ public class Polinom {
             return this.terms.equals(pol.terms);
         }
         return false;
+    }
+
+    public static Polinom copy(Polinom p){
+        Polinom res = new Polinom();
+        for(Monom m: p.terms){
+            res.addMonom(new Monom(m.grade, m.coef));
+        }
+        return res;
     }
 
     @Override
