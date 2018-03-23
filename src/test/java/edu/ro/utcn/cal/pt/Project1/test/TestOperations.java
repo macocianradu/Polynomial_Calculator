@@ -69,8 +69,8 @@ public class TestOperations {
         Integration intgr = new Integration();
         Polynomial p1 = new Polynomial();
         Polynomial p2 = new Polynomial();
-        p1.addMonom(new Monomial(3, 4));
-        p2.addMonom(new Monomial(4, 1));
+        p1.addMonom(new Monomial(2, 3));
+        p2.addMonom(new Monomial(3, 1));
         assertEquals("test add", intgr.operation(p1), p2);
     }
 }

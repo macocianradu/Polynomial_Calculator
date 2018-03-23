@@ -8,9 +8,9 @@ public class Integration implements MonoOperation {
         Polynomial res = new Polynomial();
         Polynomial remove = new Polynomial();
         for (Monomial m1 : p.terms){
-            Monomial aux = m1;
-            aux.coef *= (double)1/aux.grade;
+            Monomial aux = new Monomial(m1.grade, m1.coef);
             aux.grade ++;
+            aux.coef *= (double)1/aux.grade;
             res.addMonom(aux);
         }
         for(Monomial m1: res.terms){
