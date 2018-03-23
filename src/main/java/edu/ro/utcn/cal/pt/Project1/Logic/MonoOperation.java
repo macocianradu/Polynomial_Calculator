@@ -1,7 +1,7 @@
 package edu.ro.utcn.cal.pt.Project1.Logic;
 
-import edu.ro.utcn.cal.pt.Project1.Noms.Polinom;
+import edu.ro.utcn.cal.pt.Project1.Noms.Polynomial;
 
 public interface MonoOperation {
-    public Polinom operation(Polinom p);
+    Polynomial operation(Polynomial p);
 }

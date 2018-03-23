@@ -1,20 +1,20 @@
 package edu.ro.utcn.cal.pt.Project1.Logic;
 
-import edu.ro.utcn.cal.pt.Project1.Noms.Monom;
-import edu.ro.utcn.cal.pt.Project1.Noms.Polinom;
+import edu.ro.utcn.cal.pt.Project1.Noms.Monomial;
+import edu.ro.utcn.cal.pt.Project1.Noms.Polynomial;
 
 import java.util.ArrayList;
 
 public class Multiplication implements BinaryOperation {
-    public Polinom operation(Polinom p1, Polinom p2) {
-        Polinom res = new Polinom();
-        ArrayList<Monom> addList = new ArrayList<Monom>();
-        for(Monom m1: p1.terms){
-            for(Monom m2: p2.terms){
-                addList.add(Monom.multiply(m1, m2));
+    public Polynomial operation(Polynomial p1, Polynomial p2) {
+        Polynomial res = new Polynomial();
+        ArrayList<Monomial> addList = new ArrayList<Monomial>();
+        for(Monomial m1: p1.terms){
+            for(Monomial m2: p2.terms){
+                addList.add(Monomial.multiply(m1, m2));
             }
         }
-        for(Monom m: addList){
+        for(Monomial m: addList){
             res.addMonom(m);
         }
         return res;

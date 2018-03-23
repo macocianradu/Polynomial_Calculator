@@ -1,8 +1,8 @@
 package edu.ro.utcn.cal.pt.Project1.GUI;
 
 import edu.ro.utcn.cal.pt.Project1.Logic.*;
-import edu.ro.utcn.cal.pt.Project1.Noms.Monom;
-import edu.ro.utcn.cal.pt.Project1.Noms.Polinom;
+import edu.ro.utcn.cal.pt.Project1.Noms.Monomial;
+import edu.ro.utcn.cal.pt.Project1.Noms.Polynomial;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,13 +20,13 @@ public class Window {
     private Integration integration;
     private Multiplication multiplication;
     private Division division;
-    private Polinom p1, p2;
+    private Polynomial p1, p2;
 
     private Window(){
         JFrame window   = new JFrame("Calculator");
         JPanel panel1   = new JPanel(new GridBagLayout());
-        polinom1        = new JTextField("Polinom 1");
-        polinom2        = new JTextField("Polinom 2");
+        polinom1        = new JTextField("Polynomial 1");
+        polinom2        = new JTextField("Polynomial 2");
         JButton add     = new JButton("Addition");
         JButton der     = new JButton("Derivation");
         JButton div     = new JButton("Division");
@@ -94,7 +94,7 @@ public class Window {
             public void actionPerformed(ActionEvent e) {
                 p1 = getPolinom(polinom1.getText());
                 p2 = getPolinom(polinom2.getText());
-                Polinom[] result = division.operation(p1, p2);
+                Polynomial[] result = division.operation(p1, p2);
                 res.setText(result[0].toString() + " rest: " + result[1].toString());
             }
         });
@@ -107,12 +107,12 @@ public class Window {
 
     }
 
-    private Polinom getPolinom(String Polinom){
+    private Polynomial getPolinom(String Polinom){
         Pattern p = Pattern.compile("(-?\\b\\d+)[xX]\\^(-?\\d+\\b)");
         Matcher m = p.matcher(Polinom);
-        Polinom p1 = new Polinom();
+        Polynomial p1 = new Polynomial();
         while (m.find()){
-            p1.terms.add(new Monom(Integer.parseInt(m.group(2)), Double.parseDouble(m.group(1))));
+            p1.terms.add(new Monomial(Integer.parseInt(m.group(2)), Double.parseDouble(m.group(1))));
             System.out.println("Coef: " + m.group(1));
             System.out.println("Degree: " + m.group(2));
         }
