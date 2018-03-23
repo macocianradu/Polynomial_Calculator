@@ -53,8 +53,8 @@ public class Polynomial {
         for(Monomial m : this.terms){
             if(m.coef > 0)
                 str += "+";
-            str += String.valueOf(m.coef) + "x^" + String.valueOf(m.grade);
-            System.out.println("coeficient: "+ m.coef + "grad: " + m.grade);
+            double roundOff = Math.round(m.coef * 100.0) / 100.0;
+            str += String.valueOf(roundOff) + "x^" + String.valueOf(m.grade);
         }
         if(str.length()>0)
             str = str.substring(1);
